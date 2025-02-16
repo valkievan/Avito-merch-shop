@@ -1,4 +1,3 @@
-from typing import List
 from pydantic import BaseModel
 
 
@@ -15,10 +14,10 @@ class SentTransactionInfo(BaseModel):
     amount: int
 
 class TransactionHistory(BaseModel):
-    received: List[ReceivedTransactionInfo]
-    sent: List[SentTransactionInfo]
+    received: list[ReceivedTransactionInfo]
+    sent: list[SentTransactionInfo]
 
 class InfoResponse(BaseModel):
     coins: int
-    inventory: List[InventoryItem]
+    inventory: list[InventoryItem]
     coinHistory: TransactionHistory
