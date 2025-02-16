@@ -1,0 +1,15 @@
+[tool.ruff]
+select = ["E", "F", "W", "C", "I", "UP", "ASYNC", "B", "A", "S", "T", "Q"]
+
+ignore = ["B008", "B904", "E722"]
+
+line-length = 101
+
+exclude = ["alembic", "venv", "tests"]
+
+fix = true
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
