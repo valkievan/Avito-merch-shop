@@ -1,0 +1,28 @@
+---------- coverage: platform win32, python 3.11.5-final-0 -----------
+Name                             Stmts   Miss  Cover   Missing
+--------------------------------------------------------------
+app\api\__init__.py                  0      0   100%
+app\api\auth.py                     21     10    52%   16-31
+app\api\info.py                     24      6    75%   26-40, 60
+app\api\shop.py                     27      8    70%   33-48
+app\api\transactions.py             28      9    68%   28-45
+app\core\__init__.py                 0      0   100%
+app\core\config.py                  12      0   100%
+app\core\security.py                39      5    87%   60, 65-69
+app\db\__init__.py                   0      0   100%
+app\db\base.py                       6      0   100%
+app\db\cache.py                     39     10    74%   27-28, 37, 44, 46-47, 51, 57-59
+app\db\session.py                   12      8    33%   6-14
+app\main.py                         12      0   100%
+app\middleware\__init__.py           0      0   100%
+app\middleware\rate_limiter.py      59     19    68%   32-52, 66, 78, 82-83, 89, 96, 104-106
+app\models\__init__.py               0      0   100%
+app\models\models.py                24      0   100%
+app\schemas\__init__.py              0      0   100%
+app\schemas\auth.py                  6      0   100%
+app\schemas\info.py                 18      0   100%
+app\schemas\transaction.py           4      0   100%
+--------------------------------------------------------------
+TOTAL                              331     75    77%
+
+===================================================================================================== 28 passed, 1 warning in 15.74s =====================================================================================================
