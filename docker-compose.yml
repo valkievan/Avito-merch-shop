@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - POSTGRES_URL=postgresql+asyncpg://postgres:postgres@db:5432/avito
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=your_secret_key_here
+    networks:
+      - merchant-network
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=avito
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - merchant-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    networks:
+      - merchant-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+networks:
+  merchant-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
